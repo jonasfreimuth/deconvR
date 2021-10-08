@@ -265,13 +265,13 @@ vec\]</span> that is explained by the full model <span class="math display">\[pr
 <div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">samples</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/simulateCellMix.html">simulateCellMix</a></span><span class="op">(</span><span class="fl">3</span>,reference <span class="op">=</span> <span class="va">HumanCellTypeMethAtlas</span><span class="op">)</span><span class="op">[[</span><span class="fl">1</span><span class="op">]</span><span class="op">]</span>
 <span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">samples</span><span class="op">)</span></code></pre></div>
-<pre><code>##          IDs Sample 1  Sample 2   Sample 3
-## 1 cg08169020   0.0130 0.4148606 0.11117549
-## 2 cg25913761   0.1996 0.3282734 0.27681763
-## 3 cg26955540   0.0139 0.2129230 0.14599929
-## 4 cg25170017   0.0217 0.4554979 0.20259045
-## 5 cg12827637   0.0230 0.2455442 0.12238939
-## 6 cg19442545   0.0347 0.1096330 0.05048417</code></pre>
+<pre><code>##          IDs  Sample 1   Sample 2   Sample 3
+## 1 cg08169020 0.3622192 0.12488839 0.03384878
+## 2 cg25913761 0.2143830 0.28422462 0.21229232
+## 3 cg26955540 0.1363085 0.16115845 0.13414255
+## 4 cg25170017 0.3943515 0.17638788 0.09333186
+## 5 cg12827637 0.1984864 0.11848044 0.04707643
+## 6 cg19442545 0.0679571 0.05089674 0.01307646</code></pre>
 <p><code>sampleMeta</code> should include all sample names in <code>samples</code>, and specify the origins they should be mapped to when added to <code>atlas</code>.</p>
 <div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">sampleMeta</span> <span class="op">&lt;-</span> <span class="fu">data.table</span><span class="op">(</span><span class="st">"Experiment_accession"</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/colnames.html">colnames</a></span><span class="op">(</span><span class="va">samples</span><span class="op">)</span><span class="op">[</span><span class="op">-</span><span class="fl">1</span><span class="op">]</span>,
@@ -316,12 +316,12 @@ vec\]</span> that is explained by the full model <span class="math display">\[pr
 <div class="sourceCode" id="cb16"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">extended_matrix</span><span class="op">)</span></code></pre></div>
 <pre><code>##           IDs new_cell_type Monocytes_EPIC B.cells_EPIC CD4T.cells_EPIC
-## 1: cg08169020    0.17967870         0.8866       0.2615          0.0149
-## 2: cg25913761    0.26823036         0.8363       0.2210          0.2816
-## 3: cg26955540    0.12427410         0.7658       0.0222          0.1492
-## 4: cg25170017    0.22659613         0.8861       0.5116          0.1021
-## 5: cg12827637    0.13031120         0.5212       0.3614          0.0227
-## 6: cg19442545    0.06493907         0.2013       0.1137          0.0608
+## 1: cg08169020    0.17365212         0.8866       0.2615          0.0149
+## 2: cg25913761    0.23696664         0.8363       0.2210          0.2816
+## 3: cg26955540    0.14386984         0.7658       0.0222          0.1492
+## 4: cg25170017    0.22135707         0.8861       0.5116          0.1021
+## 5: cg12827637    0.12134775         0.5212       0.3614          0.0227
+## 6: cg19442545    0.04397677         0.2013       0.1137          0.0608
 ##    NK.cells_EPIC CD8T.cells_EPIC Neutrophils_EPIC Erythrocyte_progenitors
 ## 1:        0.0777          0.0164           0.8680                  0.9509
 ## 2:        0.4705          0.3961           0.8293                  0.2385
@@ -10424,7 +10424,7 @@ vec\]</span> that is explained by the full model <span class="math display">\[pr
 <code class="sourceCode R"><span class="va">deconvolution</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/deconvolute.html">deconvolute</a></span><span class="op">(</span>reference <span class="op">=</span> <span class="va">extended_matrix</span>, 
                              bulk <span class="op">=</span> <span class="va">mapped_WGBS_data</span><span class="op">)</span></code></pre></div>
 <pre><code>##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
-##  0.9998  0.9998  0.9998  0.9998  0.9998  0.9998</code></pre>
+##  0.9996  0.9996  0.9996  0.9996  0.9996  0.9996</code></pre>
 <div class="sourceCode" id="cb28"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">deconvolution</span><span class="op">[[</span><span class="fl">1</span><span class="op">]</span><span class="op">]</span></code></pre></div>
 <pre><code>##         new_cell_type Monocytes_EPIC B.cells_EPIC CD4T.cells_EPIC NK.cells_EPIC
@@ -10486,13 +10486,13 @@ vec\]</span> that is explained by the full model <span class="math display">\[pr
 <div class="sourceCode" id="cb36"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">samples</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/simulateCellMix.html">simulateCellMix</a></span><span class="op">(</span><span class="fl">3</span>,reference <span class="op">=</span> <span class="va">reference_RNA</span><span class="op">)</span><span class="op">[[</span><span class="fl">1</span><span class="op">]</span><span class="op">]</span>
 <span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">samples</span><span class="op">)</span></code></pre></div>
-<pre><code>##       IDs  Sample 1  Sample 2  Sample 3
-## 1   S1PR3 2.0882290 0.3421833 0.2793478
-## 2   RXFP2 0.8053901 0.0000000 0.0000000
-## 3 ADAMTS5 0.1010023 0.0000000 0.0000000
-## 4  CLEC6A 2.5274141 0.0000000 0.0000000
-## 5   FXYD6 7.4739073 0.4618306 0.5340739
-## 6    NRG1 8.7319657 0.3404514 0.5504710</code></pre>
+<pre><code>##       IDs   Sample 1   Sample 2   Sample 3
+## 1   S1PR3 10.1263083 0.55082717 0.68666223
+## 2   RXFP2  3.8775872 0.06426623 0.07947367
+## 3 ADAMTS5  0.5293696 0.00000000 0.00000000
+## 4  CLEC6A  7.2410096 0.30343194 0.22513415
+## 5   FXYD6 26.0128663 0.96160914 1.24265173
+## 6    NRG1 31.1450259 1.32087911 1.53807370</code></pre>
 <p><code>sampleMeta</code> includes the information of where the origins they should be mapped to when added to <code>atlas</code> and also, all of the sample names in <code>samples</code>.</p>
 <div class="sourceCode" id="cb38"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">sampleMeta</span> <span class="op">&lt;-</span> <span class="fu">data.table</span><span class="op">(</span><span class="st">"Experiment_accession"</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/colnames.html">colnames</a></span><span class="op">(</span><span class="va">samples</span><span class="op">)</span><span class="op">[</span><span class="op">-</span><span class="fl">1</span><span class="op">]</span>,
@@ -10529,12 +10529,12 @@ vec\]</span> that is explained by the full model <span class="math display">\[pr
 <div class="sourceCode" id="cb42"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">extended_matrix</span><span class="op">)</span></code></pre></div>
 <pre><code>##        IDs new_cell_type Monocytes.C        NK T.CD8.Memory T.CD4.Naive
-## 1:   S1PR3    0.90325338   45.720735 0.2790023    0.1981103   0.3657506
-## 2:   RXFP2    0.26846337   17.877398 0.0000000    0.0000000   0.0000000
-## 3: ADAMTS5    0.03366743    2.550237 0.0000000    0.0000000   0.0000000
-## 4:  CLEC6A    0.84247137   33.695996 0.0000000    0.0000000   0.0000000
-## 5:   FXYD6    2.82327058  114.167642 0.4707691    0.1832934   0.2908456
-## 6:    NRG1    3.20762936  142.457347 0.1949568    0.1527024   0.2790682
+## 1:   S1PR3     3.7879326   45.720735 0.2790023    0.1981103   0.3657506
+## 2:   RXFP2     1.3404424   17.877398 0.0000000    0.0000000   0.0000000
+## 3: ADAMTS5     0.1764565    2.550237 0.0000000    0.0000000   0.0000000
+## 4:  CLEC6A     2.5898586   33.695996 0.0000000    0.0000000   0.0000000
+## 5:   FXYD6     9.4057091  114.167642 0.4707691    0.1832934   0.2908456
+## 6:    NRG1    11.3346596  142.457347 0.1949568    0.1527024   0.2790682
 ##    T.CD8.Naive   B.Naive T.CD4.Memory      MAIT  T.gd.Vd2 Neutrophils.LD
 ## 1:   0.1930285 1.5953677    0.3397065 0.1636009 0.2488113      0.1423922
 ## 2:   0.0000000 0.2471771    0.0000000 0.0000000 0.0000000      0.0000000
